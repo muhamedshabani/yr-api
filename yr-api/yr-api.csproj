@@ -8,6 +8,7 @@
     <RootNamespace>yr_api</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.2" NoWarn="NU1605" />
@@ -31,6 +32,28 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Models\RequestModels\" />
+    <Folder Include="Models\ResponseModels\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Service\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Middleware\" />
+    <Folder Include="Service\Interface\" />
+    <Folder Include="Service\Repository\" />
+    <Folder Include="Repository\Interface\" />
+    <Folder Include="Repository\Repository\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Models\RequestModels\" />
+    <None Remove="Models\ResponseModels\" />
+    <None Remove="Repository\" />
+    <None Remove="Service\" />
+    <None Remove="Extensions\" />
+    <None Remove="Middleware\" />
+    <None Remove="Service\Interface\" />
+    <None Remove="Service\Repository\" />
+    <None Remove="Repository\Interface\" />
+    <None Remove="Repository\Repository\" />
+  </ItemGroup>
 </Project>

@@ -12,5 +12,5 @@ public class ApplicationUser : IdentityUser
     public string? OneTimePassword { get; set; }
     public string? ProfilePicture { get; set; }
 
-    public List<Cabinet> Cabinets { get; set; }
+    public ICollection<Cabinet> Cabinets { get; set; }
 }

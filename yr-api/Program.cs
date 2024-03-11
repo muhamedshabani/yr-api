@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
 using yr_api.Data;
+using yr_api.Models.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
 
 builder.Services.AddControllers();
+builder.Services.AddAuthorizationBuilder();
+builder.Services
+    .AddIdentityApiEndpoints<ApplicationUser>()
+    .AddEntityFrameworkStores<DatabaseContext>();
 
 var connectionString = builder.Configuration.GetConnectionString("DbConnection");
 builder.Services.AddDbContext<DatabaseContext>(opt =>
@@ -36,6 +41,8 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.MapIdentityApi<ApplicationUser>();
 
 app.MapControllers();
 

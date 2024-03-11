@@ -1,9 +1,12 @@
-﻿namespace yr_api.Models.Enums;
+﻿using System.Text.Json.Serialization;
 
+namespace yr_api.Models.Enums;
+
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum EColorScheme
 {
-    BlackOnWhite = 0,
-    WhiteOnBlack,
+    BlackOnWhitesmoke = 0,
+    WhitesmokeOnBlack,
     WhitesmokeOnDarkGray,
     WhitesmokeOnDarkGreen,
     WhitesmokeOnDarkBlue,

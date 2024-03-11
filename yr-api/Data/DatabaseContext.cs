@@ -12,6 +12,7 @@ public class DatabaseContext : IdentityDbContext<ApplicationUser>
     public DbSet<Cabinet> Cabinets { get; set; }
     public DbSet<Models.Entities.File> Files { get; set; }
     public DbSet<Style> Styles { get; set; }
+    public DbSet<Label> Labels { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

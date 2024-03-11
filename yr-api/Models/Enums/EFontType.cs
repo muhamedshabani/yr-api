@@ -1,8 +1,12 @@
-﻿namespace yr_api.Models.Enums;
+﻿using System.Text.Json.Serialization;
 
+namespace yr_api.Models.Enums;
+
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum EFontType
 {
-    Arial = 0,
+    None = 0,
+    Arial,
     TimesNewRoman,
     Courier,
     Helvetica,
